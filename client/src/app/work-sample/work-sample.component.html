@@ -1,0 +1,108 @@
+<div class="section-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <img src="./assets/images/work001-01.jpg" class="img-responsive" alt="">
+        <div class="card-container">
+          <div class="text-center">
+            <h1 class="h2">00{{workInfo[projectName].workId}} : {{workInfo[projectName].projectName}}</h1>
+          </div>
+          <p>{{workInfo[projectName].projectDescription}}</p>
+
+          <h3 style="margin-bottom:0px">Github Link: </h3>
+          <a style="font-weight:bold;font-size:16px"
+            href="{{workInfo[projectName].githubLink}}">{{workInfo[projectName].githubLink}}</a>
+
+          <ng-container *ngIf="projectName == 'passwordChecker';then passwordCheckerHowTo">
+          </ng-container>
+
+          <ng-container *ngIf="projectName == 'webScraping';then webScrapingHowTo">
+          </ng-container>
+
+          <ng-container *ngIf="projectName == 'imageConverter';then imageConverterHowTo">
+          </ng-container>
+
+          <ng-container *ngIf="projectName == 'pdfMerger';then pdfMergerHowTo">
+          </ng-container>
+
+          <ng-container *ngIf="projectName == 'sendEmail';then sendEmailHowTo">
+          </ng-container>
+
+          <ng-container *ngIf="projectName == 'sendSMS';then sendSMSHowTo">
+
+          </ng-container>
+
+          <ng-template #sendSMSHowTo>
+            <h3>How to use: </h3>
+            <h6>Refer the below link to understand how to use the twilio library with python for sending and receiving
+              messages:
+              <a target='_blank' href='https://www.twilio.com/docs/sms/quickstart/python'>Twilio Documentation</a>
+            </h6>
+
+          </ng-template>
+
+          <ng-template #sendEmailHowTo>
+            <h3>How to use: </h3>
+            <h6>1) From the project root folder run the command : python email_smtplib.py
+            </h6>
+            <h6>2) Sample Output: Ideally it wont show any output as the script is currently configured to send email to
+              my gmail id using my password for login. It will need some configuration to use it for your use case.</h6>
+            <h6>3) Used python inbuilt library <a target="_blank" href="https://docs.python.org/3/library/email.html">
+                Email </a> and <a target="_blank"
+                href="https://docs.python.org/3/library/smtplib.html#module-smtplib">SMTPLib</a></h6>
+
+          </ng-template>
+
+          <ng-template #pdfMergerHowTo>
+            <h3>How to use: </h3>
+            <h6>1) From the project root folder run the command : python script.py
+              $$name_of_pdf_file_to_merge_space_seperated$$
+            </h6>
+            <h6>2) Sample Output: The above script will first create a merged.pdf file with content of all the pdf file
+              given in arguments. It will than create a watermarked.pdf file from merged pdf file adding
+              watermark(wtr.pdf in project root folder) to all the pages.</h6>
+            <h6>3) Used <a target="_blank" href="https://pythonhosted.org/PyPDF2/">PyPDF2
+              </a> for working with PDF.</h6>
+
+          </ng-template>
+
+
+          <ng-template #passwordCheckerHowTo>
+            <h3>How to use: </h3>
+            <h6>1) From the project root folder run the command : python checkmypass.py <b>$$password_string$$</b></h6>
+            <h6>2) Sample Output:</h6>
+            <h6> <b>$$password_string$$</b> was found n times...please change your password.</h6>
+            or
+            <h6> <b>$$password_string$$</b> was not found...Carry on!</h6>
+          </ng-template>
+
+          <ng-template #webScrapingHowTo>
+            <h3>How to use: </h3>
+            <h6>1) From the project root folder run the command : python scrape.py <b>$$number_of_pages_to_scrape$$</b>
+            </h6>
+            <h6>2) Sample Output: Array of dictionary containing link, score and title of the articles in descending
+              order of scores</h6>
+            <h6>3) Used <a target="_blank" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful
+                Soup</a> for scraping
+              library.</h6>
+
+          </ng-template>
+
+          <ng-template #imageConverterHowTo>
+            <h3>How to use: </h3>
+            <h6>1) From the project root folder run the command : python JPGToPNGConverter.py
+              <b>$$source_folder_name$$</b> &nbsp;<b>$$destination_folder_name$$</b>
+            </h6>
+            <h6>2) Sample Output: Convert all jpg images in source folder to png images and place it in destination
+              folder.</h6>
+            <h6>3) Used <a target="_blank" href="https://pillow.readthedocs.io/en/stable/">Pillow (PIL fork)
+                library</a> for image processing.</h6>
+
+          </ng-template>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
